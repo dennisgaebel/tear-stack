@@ -1,4 +1,4 @@
-# The TEA Stack
+# The TEAR Stack
 
 Welcome to the shortest stack out there. This stack combines TailwindCSS, Eleventy, AlpineJS, and Rollup to make static site authoring easy and minimal!
 
@@ -17,7 +17,7 @@ For the lazy:
 
 ## Recommended VS Code Extensions
 
-A short list of extensions for VS Code (my primary editor) that make working with this template even more awesome!
+A short list of extensions for VS Code that make working with this template even more awesome!
 
 - Nunjucks Template by eseom
 - TailwindCSS Intellisense
