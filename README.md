@@ -1,6 +1,6 @@
 # The TEAR Stack
 
-Welcome to the shortest stack out there. This stack combines TailwindCSS, Eleventy, AlpineJS, and Rollup to make static site authoring easy and minimal!
+Welcome to the shortest stack out there. This stack combines TailwindCSS, Eleventy, AlpineJS, and Rollup to make static site authoring easy and minimal! Built upon the shoulders of [TEA Stack by Matt Waler](https://github.com/mattwaler/tea-stack).
 
 ## Getting Started
 
