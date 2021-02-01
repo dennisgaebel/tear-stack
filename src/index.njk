@@ -1,0 +1,103 @@
+---
+title: Home
+---
+
+{% extends "layout.njk" %}
+
+{% block body %}
+  <main class="prose custom-tablet:bg-yellow-200 md:container md:mx-auto sm:p-40">
+    <h1>This is the {{ title | lower }} page.</h1>
+
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+      <div class="md:flex">
+        <div class="md:flex-shrink-0">
+          <img class="h-48 w-full object-cover md:w-48" src="//placehold.it/200x200" alt="Man looking at item at a store">
+        </div>
+        <div class="p-8">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
+          <p class="mt-2 text-gray-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+        </div>
+      </div>
+    </div>
+
+    {# Accordion #}
+    <ul class="accordion">
+      {% for i in range(0, 5) -%}
+      <li class="accordion-item"
+          x-data="{ open: false }"
+          class="accordion-trigger"
+          :aria-expanded="open ? true : false">
+        <button class="flex justify-between items-center"
+                role="button"
+                id=""
+                aria-label="open the accordion"
+                @click="open = !open">
+          <h3 class="accordion-title">Primary Accordion Heading {{ i }} </h3>
+
+          <span class="icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </span>
+        </button>
+
+        <div class="accordion-content"
+             x-transition:enter-start="opacity-1 transform duration-100"
+             x-show.transition="open"
+             x-bind:tabindex="open === false ? -1 : 0"
+             :aria-hidden="!open"
+             aria-labelledby="">
+          <h4 class="uppercase bottom-border mb-6 tracking-widest text-sm">Accordion Content Title {{ i }}</h4>
+          <p>The content of the accordion</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {# Dropdown #}
+    <div x-data="{ open: false }">
+      <button @click="open = true">Open Dropdown</button>
+
+      <ul
+        x-show="open"
+        @click.away="open = false"
+      >
+        Dropdown Body
+      </ul>
+    </div>
+
+    {# Dropdown Nav #}
+    <nav x-data="{ active: '' }">
+      <ul>
+        <li @mouseenter="active = 'about_us'" @mouseleave="active = ''" @click.away="active = ''">
+          <a href="#" @focus="active = 'about_us'">About Us</a>
+          <div x-show="active === 'about_us'">
+            <a href="/">Hello World</a>
+          </div>
+        </li>
+
+        <li @mouseenter="active = 'products'" @mouseleave="active = ''" @click.away="active = ''">
+          <a href="#" @focus="active = 'products'">Products</a>
+          <div x-show="active === 'products'">
+            <a href="/">Hello World</a>
+          </div>
+        </li>
+
+        <li @mouseenter="active = 'contact'" @mouseleave="active = ''" @click.away="active = ''">
+          <a href="#" @focus="active = 'contact'">Contact</a>
+          <div x-show="active === 'contact'">
+            <a href="/">Hello World</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    {# Tabs #}
+    <div x-data="{ tab: 'foo' }">
+      <button :class="{ 'active': tab === 'foo' }" @click="tab = 'foo'">Foo</button>
+      <button :class="{ 'active': tab === 'bar' }" @click="tab = 'bar'">Bar</button>
+
+      <div x-show="tab === 'foo'">Tab Foo</div>
+      <div x-show="tab === 'bar'">Tab Bar</div>
+    </div>
+  </main>
+{% endblock %}
