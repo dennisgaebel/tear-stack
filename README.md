@@ -1,6 +1,6 @@
 # The TEA Stack
 
-Welcome to the shortest stack out there. This stack combines TailwindCSS, Eleventy, and AlpineJS to make static site authoring easy and minimal!
+Welcome to the shortest stack out there. This stack combines TailwindCSS, Eleventy, AlpineJS, and Rollup to make static site authoring easy and minimal!
 
 ## Getting Started
 
